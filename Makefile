@@ -1,23 +1,27 @@
+CXX:="g++"
+CXXFLAGS=-std=c++11 -O3
+
+
 all: gt_pro mk_pool db_val db_dump db_uniq db_build
 	@echo "GT-Pro build completed."
 
 gt_pro:  ./src/gt_pro.cpp Makefile
-	g++ -std=c++11 ./src/gt_pro.cpp -o ./bin/gt_pro -O3 -pthread
+	${CXX} ${CXXFLAGS} ./src/gt_pro.cpp -o ./bin/gt_pro -pthread
 
 mk_pool: ./src/mk_pool.cpp Makefile
-	g++ -std=c++11 ./src/mk_pool.cpp -o ./bin/mk_pool -O3
+	${CXX} ${CXXFLAGS} ./src/mk_pool.cpp -o ./bin/mk_pool
 
 db_val: ./src/db_val.cpp Makefile
-	g++ -std=c++11 ./src/db_val.cpp -o ./bin/db_val -O3 -pthread
+	${CXX} ${CXXFLAGS} ./src/db_val.cpp -o ./bin/db_val -pthread
 
 db_dump: ./src/db_dump.cpp Makefile
-	g++ -std=c++11 ./src/db_dump.cpp -o ./bin/db_dump -O3
+	${CXX} ${CXXFLAGS} ./src/db_dump.cpp -o ./bin/db_dump
 
 db_uniq: ./src/db_uniq.cpp Makefile
-	g++ -std=c++11 ./src/db_uniq.cpp -o ./bin/db_uniq -O3 
+	${CXX} ${CXXFLAGS} ./src/db_uniq.cpp -o ./bin/db_uniq
 
 db_build: src/db_build.cpp Makefile
-	g++ -std=c++11 ./src/db_build.cpp -o ./bin/db_build -O3 -pthread
+	${CXX} ${CXXFLAGS} ./src/db_build.cpp -o ./bin/db_build -pthread
 
 clean:
 	rm ./bin/db_build ./bin/gt_pro ./bin/mk_pool ./bin/db_val ./bin/db_dump ./bin/db_uniq
